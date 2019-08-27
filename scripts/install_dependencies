@@ -1,3 +1,2 @@
 #!/bin/bash
-if [ ! -z /var/www/html/index.html ]; then rm /var/www/html/index.html; fi
 yum install -y httpd
