@@ -3,7 +3,7 @@ service httpd start
 echo "Env Var: $DEPLOYMENT_GROUP_NAME"
 if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
 then
-    if [ ! -z /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/test/; fi
+    if [ -f /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/test/; fi
 else
-    if [ ! -z /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/prod/; fi
+    if [ -f /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/prod/; fi
 fi
