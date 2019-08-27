@@ -1,3 +1,9 @@
 #!/bin/bash
 service httpd start
-
+echo "Env Var: $DEPLOYMENT_GROUP_NAME"
+if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
+then
+    cp /var/www/html/index.html /var/www/html/test/
+else
+    cp /var/www/html/index.html /var/www/html/prod/
+fi
