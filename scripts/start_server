@@ -1,9 +1,3 @@
 #!/bin/bash
 service httpd start
-echo "Env Var: $DEPLOYMENT_GROUP_NAME"
-if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
-then
-    if [ -f /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/test/; fi
-else
-    if [ -f /var/www/html/index.html ]; then mv /var/www/html/index.html /var/www/html/prod/; fi
-fi
+
