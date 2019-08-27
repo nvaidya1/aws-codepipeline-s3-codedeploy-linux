@@ -3,7 +3,7 @@ service httpd start
 echo "Env Var: $DEPLOYMENT_GROUP_NAME"
 if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
 then
-    cp /var/www/html/index.html /var/www/html/test/
+    if [ ! -z /var/www/html/index.html ]; then cp /var/www/html/index.html /var/www/html/test/; fi
 else
-    cp /var/www/html/index.html /var/www/html/prod/
+    if [ ! -z /var/www/html/index.html ]; then cp /var/www/html/index.html /var/www/html/prod/; fi
 fi
