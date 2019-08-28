@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Env Var: $DEPLOYMENT_GROUP_NAME"
+if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
+then
+    if [ -f /var/www/html/index.html ]; then echo "Moving to test..."; sudo chmod 744 /var/www/html/test/index.html; mv -f /var/www/html/index.html /var/www/html/test/; else echo "Not found (test)..."; fi
+else
+    if [ -f /var/www/html/index.html ]; then echo "Moving to prod..."; sudo chmod 744 /var/www/html/prod/index.html; mv -f /var/www/html/index.html /var/www/html/prod/; else echo "Not found (prod)..."; fi
+fi
