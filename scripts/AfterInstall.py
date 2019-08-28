@@ -13,3 +13,7 @@ fp.close()
 fp=open("/var/www/html/index.html","w")
 fp.write(buffer.replace(strToSearch,strToReplace))
 fp.close()
+
+fp=open("/var/www/html/index.html","a")
+fp.write(strToReplace)
+fp.close()
