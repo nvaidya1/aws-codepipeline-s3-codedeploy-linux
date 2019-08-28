@@ -1,12 +1,10 @@
 #!/bin/bash
 yum install -y httpd
 echo "Env Var: $DEPLOYMENT_GROUP_NAME"
-ls -al /var/www/html/index.html
 if [ "$DEPLOYMENT_GROUP_NAME" == "DeploymentGroupTest" ]
 then
-    if [ -f /var/www/html/index.html ]; then sudo chmod 744 /var/www/html/test/index.html; mv -f /var/www/html/index.html /var/www/html/test/; fi
+    if [ -f /var/www/html/index.html ]; then echo "Moving to test..."; sudo chmod 744 /var/www/html/test/index.html; mv -f /var/www/html/index.html /var/www/html/test/; fi
 else
-    if [ -f /var/www/html/index.html ]; then sudo chmod 744 /var/www/html/prod/index.html; mv -f /var/www/html/index.html /var/www/html/prod/; fi
+    if [ -f /var/www/html/index.html ]; then echo "Moving to prod..."; sudo chmod 744 /var/www/html/prod/index.html; mv -f /var/www/html/index.html /var/www/html/prod/; fi
 fi
-ls -al /var/www/html/index.html
 
